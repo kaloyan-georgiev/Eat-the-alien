@@ -8,4 +8,4 @@ https://oolak419.itch.io/eat-the-alien
 
 
 
-<image src="Screenshot.png" alt="Screenshot" width="50%"></image>
+<image src="Screenshot.png" alt="Screenshot" width="75%"></image>
