@@ -1,5 +1,7 @@
 {
-	"kalo":200,
-	"misho":20,
-	"tisho":40
+	"scores": {
+		"kalo":200,
+		"misho":20,
+		"tisho":40
+	}
 }

@@ -1,5 +1,30 @@
-- 
-var scores = #{scores}
-ul
-each val, key in scores
-    li= key + ": " + val
+<head>
+    <link rel="stylesheet" type="text/css" href="style_scores.css">
+    <title>Eat the alien</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="headlogo">Eat the alien scores</div>
+        <div>
+            <ul class="navbar">
+                <li class="third"><a href="game.html">PLAY</a></li>
+                <li class="third"><a href="index.html">INSTRUCTIONS</a></li>
+                <li class="third"><a href="scores">SCORES</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul class="navbar">
+                <li class="half"><a href="">ALL SCORES</a></li>
+                <li class="half"><a href="">HIGH SCORES</a></li>
+            </ul>
+        </div>
+        <table>
+            <tr><th>Player</th><th>Score</th></tr>
+        each val, key in scores
+            tr 
+                th= key
+                th= val 
+            tr 
+        </table>
+</body>
