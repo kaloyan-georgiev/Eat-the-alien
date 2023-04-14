@@ -6,6 +6,26 @@ import {randomInt, randomChoice, Timer} from "./utils.js"
 //background, tentaclesArt, turboTentaclesArt, enemyArt, enemyImmature, baitArt_left, baitArt_right, baitArt, splashParticle_bait, splashParticle_player
 var canvas; 
 var context;
+var gamepad = 0;
+window.addEventListener("gamepadconnected", (e) => {
+    gamepad = navigator.getGamepads()[0];
+    console.log(
+        "Gamepad connected at index %d: %s. %d buttons, %d axes.",
+        e.gamepad.index,
+        e.gamepad.id,
+        e.gamepad.buttons.length,
+        e.gamepad.axes.length
+    );
+});
+
+window.addEventListener("gamepaddisconnected", (e) => {
+    gamepad = 0;
+    console.log(
+        "Gamepad disconnected from index %d: %s",
+        e.gamepad.index,
+        e.gamepad.id
+    );
+});
 
 window.onload = function() {
     var score = 0;
@@ -35,7 +55,7 @@ window.onload = function() {
             return Math.round(number * (10 ** places)) / (10 ** places)
         }
         
-        
+        //Initializing variables
         var enemySpeed = 2.8;
         var enemySpeed_modifier = 0.4;
         var maxEnemies = 6;
@@ -49,12 +69,25 @@ window.onload = function() {
         var gameTimer = new Timer(FPS);
         var endScreenTimer = new Timer(FPS);
         var afterGameTimer = new Timer(FPS);
+
         context.font = "normal normal 700 20px sans-serif"
+        
+        // Registering keystrokes
+        onkeydown = onkeyup = function (e) {
+            tentacles.keystrokes[e.code] = (e.type == "keydown");
+            console.log(e.code);
+        }
+
+
+
         function mainLoop() {
             context.drawImage(background, 0, 0);
-            // Registering keystrokes
-            onkeydown = onkeyup = function (e) {
-                tentacles.keystrokes[e.code] = (e.type == "keydown");
+            //Gamepad support
+            if(gamepad != 0) {
+                tentacles.keystrokes["Axe0"] = gamepad.axes[0];
+                tentacles.keystrokes["Axe1"] = gamepad.axes[1];
+                tentacles.keystrokes["Button7"] = gamepad.buttons[7].pressed;
+                console.log(tentacles.keystrokes);
             }
             // Drawing player
             if(tentacles.isAlive) {

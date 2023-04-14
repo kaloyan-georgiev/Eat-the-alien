@@ -9,31 +9,31 @@ class Player extends Entity {
     movementCheck() {
         this.art = tentaclesArt;
         this.turboModifier = 1;
-        if(this.keystrokes["ShiftLeft"] && this.stamina > 0) {
+        if((this.keystrokes["ShiftLeft"] || this.keystrokes["Button7"]) && this.stamina > 0) {
             this.art = turboTentaclesArt;
             this.turboModifier = 3;
         }
-        if(this.keystrokes["KeyA"] || this.keystrokes["ArrowLeft"]) {
+        if(this.keystrokes["KeyA"] || this.keystrokes["ArrowLeft"] || this.keystrokes["Axe0"] == -1) {
             this.x -= this.speed * this.turboModifier;
-            if(this.keystrokes["ShiftLeft"] && this.stamina > 0) {
+            if((this.keystrokes["ShiftLeft"] || this.keystrokes["Button7"]) && this.stamina > 0) {
                 this.stamina--;
             }
         }
-        if(this.keystrokes["KeyD"] || this.keystrokes["ArrowRight"]) {
+        if(this.keystrokes["KeyD"] || this.keystrokes["ArrowRight"] || this.keystrokes["Axe0"] == 1) {
             this.x += this.speed * this.turboModifier;
-            if(this.keystrokes["ShiftLeft"] && this.stamina > 0) {
+            if((this.keystrokes["ShiftLeft"] || this.keystrokes["Button7"]) && this.stamina > 0) {
                 this.stamina--;
             }								
         }
-        if(this.keystrokes["KeyW"] || this.keystrokes["ArrowUp"]) {
+        if(this.keystrokes["KeyW"] || this.keystrokes["ArrowUp"] || this.keystrokes["Axe1"] == -1) {
             this.y -= this.speed * this.turboModifier;
-            if(this.keystrokes["ShiftLeft"] && this.stamina > 0) {
+            if((this.keystrokes["ShiftLeft"] || this.keystrokes["Button7"]) && this.stamina > 0) {
                 this.stamina--;
             }								
         }
-        if(this.keystrokes["KeyS"] || this.keystrokes["ArrowDown"]) {
+        if(this.keystrokes["KeyS"] || this.keystrokes["ArrowDown"] || this.keystrokes["Axe0"] == 1) {
             this.y += this.speed * this.turboModifier;
-            if(this.keystrokes["ShiftLeft"] && this.stamina > 0) {
+            if((this.keystrokes["ShiftLeft"] || this.keystrokes["Button7"]) && this.stamina > 0) {
                 this.stamina--;
             }								
         }
