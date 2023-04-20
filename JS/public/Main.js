@@ -87,7 +87,7 @@ window.onload = function() {
                 tentacles.keystrokes["Axe0"] = gamepad.axes[0];
                 tentacles.keystrokes["Axe1"] = gamepad.axes[1];
                 tentacles.keystrokes["Button7"] = gamepad.buttons[7].pressed;
-                console.log(tentacles.keystrokes);
+                //console.log(tentacles.keystrokes);
             }
             // Drawing player
             if(tentacles.isAlive) {

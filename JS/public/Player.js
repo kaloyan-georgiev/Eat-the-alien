@@ -31,7 +31,7 @@ class Player extends Entity {
                 this.stamina--;
             }								
         }
-        if(this.keystrokes["KeyS"] || this.keystrokes["ArrowDown"] || this.keystrokes["Axe0"] == 1) {
+        if(this.keystrokes["KeyS"] || this.keystrokes["ArrowDown"] || this.keystrokes["Axe1"] == 1) {
             this.y += this.speed * this.turboModifier;
             if((this.keystrokes["ShiftLeft"] || this.keystrokes["Button7"]) && this.stamina > 0) {
                 this.stamina--;
